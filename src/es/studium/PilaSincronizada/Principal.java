@@ -1,4 +1,4 @@
-package es.studiumPilaSincronizada;
+package es.studium.PilaSincronizada;
 
 public class Principal
 {

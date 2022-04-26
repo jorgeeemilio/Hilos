@@ -1,15 +1,15 @@
-package es.studiumPilaSincronizada;
+package es.studium.PilaSincronizada;
 
 import java.util.Random;
 
-public class Consumidor extends Thread
+public class Productor extends Thread
 {
 	private Pila pila;
 	private int num;
 	private Random aleatorio = new Random();
 	private static int contador = 1;
 	
-	public Consumidor(Pila p)
+	public Productor(Pila p)
 	{
 		pila = p;
 		num = contador++;
@@ -20,8 +20,9 @@ public class Consumidor extends Thread
 		String c;
 		for(int i = 0; i < 10; i++)
 		{
-			c = pila.pop();
-			System.out.println("Consumidor "+ num + " ha sacado la letra " + c);
+			c = ((char)(aleatorio.nextInt(26)+'A')+"");
+			pila.push(c);
+			System.out.println("Productor "+num+" generó la letra "+c);
 			try
 			{
 				Thread.sleep(aleatorio.nextInt(300));
